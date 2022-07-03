@@ -1,0 +1,50 @@
+.bgHome {
+  background-color: #E8FCCF;
+  height: 120vh;
+}
+
+.homePlanBtn {
+  width: 90vw;
+}
+
+.homeHeader {
+  text-transform: uppercase;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(-225deg,
+  #134611 0%,
+  #3e8914 29%,
+  #3da35d 67%,
+  #96e072 100%);
+  animation: colorful 1s linear infinite;
+  font-size: 100px;
+}
+
+
+@keyframes colorful {
+  0% {
+    background-position: 0% 100%;
+    background-image: linear-gradient(45deg,
+    #134611 0%,
+    #3e8914 30%,
+    #3da35d 70%,
+    #96e072 100%);
+  }
+
+  50% {
+    background-position: 0% 100%;
+    background-image: linear-gradient(90deg,
+    #96e072 0%,
+    #3da35d 30%,
+    #3e8914 70%,
+    #134611 100%);
+  }
+  100% {
+    background-position: 0% 100%;
+    background-image: linear-gradient(180deg,
+    #134611 0%,
+    #3da35d 30%,
+    #3e8914 70%,
+    #96e072 100%);
+  }
+}
