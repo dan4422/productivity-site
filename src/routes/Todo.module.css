@@ -1,9 +1,22 @@
+.backgroundTodo {
+  height: 120vh;
+}
+
 .viewBtn {
   margin-top: 15px;
   display: flex;
   justify-content: center;
 }
 
-.viewBtn button {
-  background-color: blueviolet;
+.viewBtn button,
+.viewBtn button:active,
+.viewBtn button:focus
+{
+  background-color: #3DA35D;
+  border-color: #3DA35D;
+  outline-color: #3DA35D;
+}
+
+.viewBtn button:hover {
+  background-color: #745C97;
 }

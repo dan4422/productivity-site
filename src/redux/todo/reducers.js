@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETE_TASK, DELETE_TASK } from "./actions"
+import { ADD_TASK, TOGGLE_TASK, DELETE_TASK } from "./actions"
 
 const defaultState = {
   tasks: [],
@@ -17,10 +17,10 @@ export function tasksReducer(state = defaultState, action) {
         tasks: state.tasks.filter((task,i) => task !== action.task)
       }
 
-    case COMPLETE_TASK:
+    case TOGGLE_TASK:
       return {
         ...state,
-        completed: action.task.complete = !action.task.complete
+        tasks: state.tasks.map(task => task.id === action.task.id ? {...task, complete: !task.complete}: task),
       }
 
     default:

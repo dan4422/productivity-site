@@ -6,16 +6,25 @@ import {Chart as ChartJS} from 'chart.js/auto'
 import styles from '../routes/Progress.module.css'
 
 
-function BarChart(props) {
+function CompletedBarChart() {
   const tasks = useSelector(state => state.todo.tasks)
+  const monthData = {}
+  for (let i=0; i < tasks.length; i++) {
+    const month = new Date(tasks[i].start).getMonth()+1
+    if (!(month in monthData)) {
+      monthData[month] = 0
+    }
+    if (month in monthData && tasks[i].complete === true) {
+      monthData[month] += 1
+    }
+  }
+  console.log(monthData)
   const [data, setData] = useState({
-    labels: ['Completed Tasks','Number of Tasks'],
     datasets: [{
-      label: "Tasks Completed",
-      data: [tasks.filter((task) => task.complete === true).length, tasks.length],
+      label: "Completed Tasks by Month",
+      data: monthData,
       backgroundColor: [
       '#3DA35D',
-      '#2a71d0',
       ],
       borderColor: 'black',
       borderWidth: 2,
@@ -27,4 +36,4 @@ function BarChart(props) {
   )
 }
 
-export default BarChart
+export default CompletedBarChart

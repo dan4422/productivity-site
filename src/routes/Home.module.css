@@ -3,6 +3,10 @@
   height: 120vh;
 }
 
+.homePlanBtn {
+  width: 25vw;
+}
+
 .homeHeader {
   text-transform: uppercase;
   background-clip: text;

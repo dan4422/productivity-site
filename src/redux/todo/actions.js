@@ -1,6 +1,6 @@
 export const ADD_TASK = 'todo/ADD_TASK'
 export const DELETE_TASK = 'todo/DELETE_TASK'
-export const COMPLETE_TASK = 'todo/COMPLETE_TASK'
+export const TOGGLE_TASK = 'todo/TOGGLE_TASK'
 
 
 export const addTask = (task) => {
@@ -17,9 +17,9 @@ export const deleteTask = (task) => {
   }
 }
 
-export const completeTask = (task) => {
+export const toggleTask = (task) => {
   return {
-    type: COMPLETE_TASK,
+    type: TOGGLE_TASK,
     task
   }
 }

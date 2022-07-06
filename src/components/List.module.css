@@ -1,0 +1,16 @@
+.table {
+  width: 95vw;
+  background-color: #f9f9f9;
+}
+
+.titleRow {
+  width: 25%;
+}
+
+.allDayRow {
+  width: 18%;
+}
+
+.actionRow {
+  width: 13%
+}

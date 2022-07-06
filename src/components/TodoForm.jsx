@@ -26,8 +26,8 @@ function TodoForm() {
     const newTask = {
       id: nextId,
       title,
-      start: allDay ? startDateTime : new Date(start),
-      end: allDay ? endDateTime : new Date(end),
+      start: allDay ? new Date(startDateTime) : new Date(start),
+      end: allDay ? new Date(endDateTime) : new Date(end),
       allDay,
       complete: false
     }

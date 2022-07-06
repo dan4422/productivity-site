@@ -10,7 +10,7 @@ import enUS from 'date-fns/locale/en-US'
 import { useDispatch, useSelector } from 'react-redux'
 import { Modal, Button } from 'react-bootstrap'
 import { useState } from 'react'
-import { completeTask, deleteTask } from '../redux/todo/actions'
+import { toggleTask, deleteTask } from '../redux/todo/actions'
 
 const locales = {
   'en-US': enUS,
@@ -46,7 +46,7 @@ function MainCalendar() {
   }
 
   const markComplete = (task) => {
-    dispatch(completeTask(task))
+    dispatch(toggleTask(task))
     handleClose()
   }
 
@@ -80,7 +80,7 @@ function MainCalendar() {
 
   return (
     <>
-      <div className='d-flex justify-content-center mb-3'>
+      <div className='d-flex justify-content-center mb-2'>
         <MyCalendar/>
       </div>
       {selectedTask &&
@@ -89,9 +89,9 @@ function MainCalendar() {
             <Modal.Title>{selectedTask.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Start: {selectedTask.allDay ? selectedTask.start : selectedTask.start.toLocaleDateString('en-US')} {selectedTask.allDay ? '': selectedTask.start.toLocaleTimeString('en-US')}
+            Start: {new Date(selectedTask.start).toLocaleDateString('en-US')} {selectedTask.allDay ? '': new Date(selectedTask.start).toLocaleTimeString('en-US')}
             <br />
-            End: {selectedTask.allDay ? selectedTask.end.substring(0,16) : selectedTask.end.toLocaleDateString('en-US')} {selectedTask.allDay ? '': selectedTask.end.toLocaleTimeString('en-US')}
+            End: {new Date(selectedTask.end).toLocaleDateString('en-US')} {selectedTask.allDay ? '': new Date(selectedTask.end).toLocaleTimeString('en-US')}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

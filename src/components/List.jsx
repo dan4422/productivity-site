@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Table, Button } from 'react-bootstrap'
 import ListItem from './ListItem'
 import { useState } from 'react'
+import styles from './List.module.css'
 
 function List() {
   const tasks = useSelector(state => state.todo.tasks)
@@ -10,14 +11,14 @@ function List() {
 
   return (
     <>
-      <Table striped bordered hover className='mt-4 mx-auto' style={{width:'95vw'}}>
+      <Table striped bordered hover className={`${styles.table} mt-4 mx-auto`}>
         <thead>
           <tr>
-            <th>Title</th>
+            <th className={styles.titleRow}>Title</th>
             <th>Start Date</th>
             <th>End Date</th>
-            <th>All Day? <Button onClick={() => setSortAllDay(!sortAllDay)}>Sort All Day Events to top</Button></th>
-            <th>Action</th>
+            <th className={styles.allDayRow}>All Day? <Button variant="success" onClick={() => setSortAllDay(!sortAllDay)}>Sort</Button></th>
+            <th  className={styles.actionRow}>Action</th>
           </tr>
         </thead>
         <tbody className="border">

@@ -1,7 +1,10 @@
 .bgTopNav {
   background-color: #3DA35D;
+  font-weight: 700;
+  font-size:x-large;
 }
 
 .bgBottomNav {
   background-color: #96E072;
+  font-weight: 800;
 }
