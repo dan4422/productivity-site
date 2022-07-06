@@ -1,17 +1,25 @@
-export const ADD_TODO = 'todos/ADD_TODO'
-export const DELETE_TODO = 'todos/DELETE_TODO'
+export const ADD_TASK = 'todo/ADD_TASK'
+export const DELETE_TASK = 'todo/DELETE_TASK'
+export const COMPLETE_TASK = 'todo/COMPLETE_TASK'
 
 
-export const addToDo = (task) => {
+export const addTask = (task) => {
   return {
-    type: ADD_TODO,
+    type: ADD_TASK,
     task,
   }
 }
 
-export const deleteToDo = (index) => {
+export const deleteTask = (task) => {
   return {
-    type: DELETE_TODO,
-    index
+    type: DELETE_TASK,
+    task
+  }
+}
+
+export const completeTask = (task) => {
+  return {
+    type: COMPLETE_TASK,
+    task
   }
 }

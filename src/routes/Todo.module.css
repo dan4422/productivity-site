@@ -1,0 +1,9 @@
+.viewBtn {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.viewBtn button {
+  background-color: blueviolet;
+}

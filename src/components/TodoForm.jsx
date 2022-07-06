@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { Button, Form, FloatingLabel, InputGroup, Container } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { addToDo } from '../redux/todo/actions'
+import { addTask } from '../redux/todo/actions'
 import { useSelector } from 'react-redux'
 import styles from './TodoForm.module.css'
 
 function TodoForm() {
   const dispatch = useDispatch()
+  const tasks = useSelector(state => state.todo.tasks)
   const [title, setTitle] = useState('')
   const [start, setDateStart] = useState('')
   const [end, setDateEnd] = useState('')
@@ -14,14 +15,23 @@ function TodoForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const newTask = {
-      title,
-      start: new Date(start),
-      end: new Date(end),
-      allDay
+    const startDateTime = new Date(start).toUTCString().substring(0, 16)
+    const endDateTime = new Date(end).toUTCString().substring(0, 16) + ' 06:00:00 GMT'
+    let nextId = 0
+    for (let task of tasks) {
+      if (task.id >= nextId) {
+        nextId = task.id + 1
+      }
     }
-    dispatch(addToDo(newTask))
-    console.log(newTask)
+    const newTask = {
+      id: nextId,
+      title,
+      start: allDay ? startDateTime : new Date(start),
+      end: allDay ? endDateTime : new Date(end),
+      allDay,
+      complete: false
+    }
+    dispatch(addTask(newTask))
     setTitle('')
     setDateStart('')
     setDateEnd('')
@@ -35,13 +45,13 @@ function TodoForm() {
           <InputGroup size="lg">
             <FloatingLabel label="Add in a Task" className='flex-grow-1'>
               <Form.Control size="lg" type="text"
-                placeholder='Add in a task' value={title} onChange={(e) => setTitle(e.target.value)} />
+                placeholder='Add in a task' value={title} onChange={(e) => setTitle(e.target.value)} required />
             </FloatingLabel>
             <FloatingLabel label="Pick a start date">
-              <Form.Control type="datetime-local" placeholder='Pick a start date' value={start} onChange={(e) => setDateStart(e.target.value)} />
-            </FloatingLabel>            
+              {allDay ? <Form.Control type="date" placeholder='Pick a start date' value={start} onChange={(e) => setDateStart(e.target.value)} required /> : <Form.Control type="datetime-local" placeholder='Pick a start date' value={start} onChange={(e) => setDateStart(e.target.value)} required />}
+            </FloatingLabel>
             <FloatingLabel label="Pick a end date">
-              <Form.Control type="datetime-local" placeholder='Pick a end date' value={end} onChange={(e) => setDateEnd(e.target.value)} />
+              {allDay ? <Form.Control type="date" placeholder='Pick a end date' value={end} onChange={(e) => setDateEnd(e.target.value)} required /> : <Form.Control type="datetime-local" placeholder='Pick a end date' value={end} onChange={(e) => setDateEnd(e.target.value)} required />}
             </FloatingLabel>
             <div className={styles.switchbox}>
               <p>All Day Event?</p>
@@ -52,7 +62,7 @@ function TodoForm() {
                 value={allDay}
                 checked={allDay}
                 onChange={(e) => setAllDay(!allDay)}
-                />
+              />
             </div>
             <Button type="submit" className='bg-success btn-outline-success text-white btn-lg'>Submit</Button>
           </InputGroup>

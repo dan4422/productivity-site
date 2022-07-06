@@ -10,9 +10,13 @@ function Home() {
       <Container>
         <Row>
           <h1 className={`text-center mt-3 ${styles.homeHeader}`}>Just do it STOOPID</h1>
+          <Col>
           <Link to="/todo" style={{ color: 'black', textDecoration: 'none' }}>
             <Button className={`${styles.homePlanBtn} bg-success btn-outline-success text-white btn-lg mt-2`}>Start Planning</Button>
           </Link>
+          </Col>
+        </Row>
+        <Row>
           <MainCalendar />
         </Row>
       </Container>
