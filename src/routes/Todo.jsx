@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TodoForm from '../components/TodoForm'
 import MainCalendar from '../components/MainCalendar'
 import List from '../components/List'
-import { Button, Container, Row, Col } from 'react-bootstrap'
+import { Button, Col } from 'react-bootstrap'
 import styles from './Todo.module.css'
 
 
@@ -16,7 +16,7 @@ function Todo() {
         {changeView ? <Button onClick={() => setChangeView(!changeView)}>See List View</Button> : <Button onClick={() => setChangeView(!changeView)}>See Calendar View</Button>}
       </div>
       <Col xs={12}>
-        {changeView ? <MainCalendar /> : <List />}
+        {changeView ? <MainCalendar /> : <List className={styles.table}/>}
       </Col>
     </>
   )

@@ -14,11 +14,12 @@ function List() {
       <Table striped bordered hover className={`${styles.table} mt-4 mx-auto`}>
         <thead>
           <tr>
+            <th className={styles.completeRow}>Complete?</th>
             <th className={styles.titleRow}>Title</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th className={styles.allDayRow}>All Day? <Button variant="success" onClick={() => setSortAllDay(!sortAllDay)}>Sort</Button></th>
-            <th  className={styles.actionRow}>Action</th>
+            <th className={styles.actionRow}>Action</th>
           </tr>
         </thead>
         <tbody className="border">

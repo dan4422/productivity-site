@@ -18,6 +18,7 @@ function ListItem(props) {
 
   return (
     <tr>
+      <td>{complete ? 'Completed':'Not Yet'}</td>
       <td>{title}</td>
       <td>{new Date(start).toLocaleDateString('en-US')} {allDay ? '' : new Date(start).toLocaleTimeString('en-US')}</td>
       <td>{new Date(end).toLocaleDateString('en-US')} {allDay ? '' : new Date(end).toLocaleTimeString('en-US')}</td>

@@ -1,6 +1,8 @@
 .table {
   width: 95vw;
   background-color: #f9f9f9;
+  border: 2px outset #3DA35D;
+
 }
 
 .titleRow {
@@ -13,4 +15,8 @@
 
 .actionRow {
   width: 13%
+}
+
+.completeRow {
+
 }

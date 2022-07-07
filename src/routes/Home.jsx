@@ -5,6 +5,9 @@ import styles from './Home.module.css'
 import MainCalendar from '../components/MainCalendar'
 import List from '../components/List'
 
+
+// Make Categories for tasks Ex. school, work, home, chores, etc. 
+// Make Calendar and List smaller to fit on homepage side by side
 function Home() {
   return (
     <Stack className={`${styles.bgHome}`}>
@@ -24,7 +27,10 @@ function Home() {
         </Row>
         <Row>
           <Col xs={12}>
-            <MainCalendar/>
+            <MainCalendar className={styles.homeCalendar}/>
+          </Col>
+          <Col xs={12}>
+            <List/>
           </Col>
         </Row>
       </Container>

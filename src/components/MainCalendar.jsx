@@ -54,10 +54,18 @@ function MainCalendar() {
     if (event.complete) {
       return {
         style: {
-          backgroundColor: 'green'
+          backgroundColor: '#09A129',
+          textDecoration: 'line-through'
         }
       }
     }
+    if (event.color) {
+      return {
+        style: {
+          backgroundColor: event.color,
+        }
+      }
+    } 
   }
 
   const views = Object.keys(Views).map((k)=> Views[k])
@@ -100,10 +108,10 @@ function MainCalendar() {
             <Button variant="danger" onClick={() => deleteBtn(selectedTask)}>
               Delete
             </Button>
-            {selectedTask.complete ? <Button variant="primary" onClick={() => markComplete(selectedTask)}>
-              Mark as Uncompleted
-            </Button> : <Button variant="primary" onClick={() => markComplete(selectedTask)}>
-              Mark as Complete
+            {selectedTask.complete ? <Button variant="warning" onClick={() => markComplete(selectedTask)}>
+              Incomplete
+            </Button> : <Button variant="success" onClick={() => markComplete(selectedTask)}>
+              Completed
             </Button>}
           </Modal.Footer>
         </Modal> }

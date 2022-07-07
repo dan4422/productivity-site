@@ -20,3 +20,8 @@
 .viewBtn button:hover {
   background-color: #745C97;
 }
+
+.table {
+  width: 95vw;
+  background-color: #f9f9f9;
+}

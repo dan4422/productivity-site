@@ -12,6 +12,7 @@ function TodoForm() {
   const [start, setDateStart] = useState('')
   const [end, setDateEnd] = useState('')
   const [allDay, setAllDay] = useState(false)
+  const [color, setColor] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -29,7 +30,8 @@ function TodoForm() {
       start: allDay ? new Date(startDateTime) : new Date(start),
       end: allDay ? new Date(endDateTime) : new Date(end),
       allDay,
-      complete: false
+      complete: false,
+      color
     }
     dispatch(addTask(newTask))
     setTitle('')
@@ -43,6 +45,18 @@ function TodoForm() {
       <Container fluid className='mt-5'>
         <Form onSubmit={handleSubmit} className="mx-auto" style={{ width: '80vw' }}>
           <InputGroup size="lg">
+          <FloatingLabel label="Pick a color">
+            <Form.Select value={color} onChange={(e) => setColor(e.target.value)}>
+              <option selected disabled>Choose Color</option>
+              <option value="#3993DD">Blue</option>
+              <option value="#90141E">Red</option>
+              <option value="#EFAAC4">Pink</option>
+              <option value="#772D8B">Purple</option>
+              <option value="#E55812">Orange</option>
+              <option value="#FFC100">Yellow</option>
+              <option value="#B88B4A">Brown</option>
+            </Form.Select>
+            </FloatingLabel>
             <FloatingLabel label="Add in a Task" className='flex-grow-1'>
               <Form.Control size="lg" type="text"
                 placeholder='Add in a task' value={title} onChange={(e) => setTitle(e.target.value)} required />
