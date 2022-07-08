@@ -6,7 +6,6 @@ import {Chart as ChartJS} from 'chart.js/auto'
 import styles from '../routes/Progress.module.css'
 
 
-
 function PieChart(props) {
   const tasks = useSelector(state => state.todo.tasks)
   const [data, setData] = useState({
@@ -22,14 +21,11 @@ function PieChart(props) {
       borderWidth: 1,
       borderRadius: 5,
     }],
-    options: {
-      responsive:false,
-      maintainAspectRatio: false,
-    }
   })
+  
 
   return (
-    <Pie data={data}  className={styles.bgColor}/>
+    <Pie data={data} className={styles.bgChart}/>
   )
 }
 

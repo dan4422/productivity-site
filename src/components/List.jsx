@@ -7,27 +7,37 @@ import styles from './List.module.css'
 
 function List() {
   const tasks = useSelector(state => state.todo.tasks)
-  const [sortAllDay, setSortAllDay] = useState(false)
+  const [sort,setSort] = useState(null)
+  const [direction,setDirection] = useState(1)
+
+  const sortedTask = sort ? tasks.sort((a,b) => a[sort] > b[sort] ? direction : -direction) : tasks
+
+  const handleSortClick = (name) => {
+    if (name === sort) {
+      setDirection(-direction)
+    } else {
+      setDirection(1)
+      setSort(name)
+    }
+  }
 
   return (
     <>
       <Table striped bordered hover className={`${styles.table} mt-4 mx-auto`}>
-        <thead>
+        <thead className={styles.tableHead}>
           <tr>
-            <th className={styles.completeRow}>Complete?</th>
-            <th className={styles.titleRow}>Title</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th className={styles.allDayRow}>All Day? <Button variant="success" onClick={() => setSortAllDay(!sortAllDay)}>Sort</Button></th>
+            <th className={styles.completeRow}>√ <br /><Button className='btn-sm' variant="success" onClick={() => handleSortClick('complete')}>Sort</Button>{sort !== 'complete' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>
+            <th>Color <br /> <Button className='btn-sm' variant="success" onClick={() => handleSortClick('color')}>Sort</Button>{sort !== 'color' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>
+            <th className={styles.titleRow}>Title  <br /><Button className='btn-sm' variant="success" onClick={() => handleSortClick('title')}>Sort</Button> {sort !== 'title' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>
+            <th>Start  <br /><Button className='btn-sm' variant="success" onClick={() => handleSortClick('start')}>Sort</Button>{sort !== 'start' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>
+            <th>End  <br /><Button className='btn-sm' variant="success" onClick={() => handleSortClick('end')}>Sort</Button>{sort !== 'end' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>
+            <th className={styles.allDayRow}>All Day  <br /><Button className='btn-sm' variant="success" onClick={() => handleSortClick('allDay')}>Sort</Button>{sort !== 'allDay' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>
             <th className={styles.actionRow}>Action</th>
           </tr>
         </thead>
-        <tbody className="border">
-        {tasks && sortAllDay ? tasks.sort((a,b) => a.allDay - b.allDay).sort((a,b) => a.start - b.start).map((task,i) => {
-          return (
-            <ListItem key={i} data={task}/>
-          )
-        }) : tasks.sort((a,b) => b.allDay - a.allDay).sort((a,b) => a.start - b.start).map((task,i) => {
+        <tbody className={styles.tableBody}>
+        {tasks?.length > 0 ? '':'Nothing in here yet. Get Started!'}
+        {sortedTask && sortedTask.map((task,i) => {
           return (
             <ListItem key={i} data={task}/>
           )

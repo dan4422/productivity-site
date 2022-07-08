@@ -32,7 +32,7 @@ function CompletedBarChart() {
   })
 
   return (
-    <Bar data={data} className={styles.bgColor} />
+    <Bar data={data} className={styles.bgChart} />
   )
 }
 

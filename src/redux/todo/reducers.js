@@ -4,7 +4,8 @@ const defaultState = {
   tasks: [],
 }
 
-export function tasksReducer(state = defaultState, action) {
+export function tasksReducer(oldState = defaultState, action) {
+  const state = {tasks: oldState.tasks.map(task => ({...task, end: new Date(task.end), start: new Date(task.start)}))}
   switch (action.type) {
     case ADD_TASK: 
     return {
@@ -14,7 +15,7 @@ export function tasksReducer(state = defaultState, action) {
 
     case DELETE_TASK:
       return {
-        tasks: state.tasks.filter((task,i) => task !== action.task)
+        tasks: state.tasks.filter((task,i) => task.id !== action.task.id)
       }
 
     case TOGGLE_TASK:

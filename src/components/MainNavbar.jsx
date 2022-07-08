@@ -9,7 +9,7 @@ function MainNavbar() {
     <>
       <Container fluid>
         <Row>
-          <Navbar.Brand className={`${styles.bgTopNav} text-center text-dark`} as={Link} to="/">To-Do It</Navbar.Brand>
+          <Navbar.Brand className={`${styles.bgTopNav} text-center text-dark`} as={Link} to="/">√ To-Do It</Navbar.Brand>
         </Row>
       </Container>
       <Navbar className={styles.bgBottomNav} expand="lg" >

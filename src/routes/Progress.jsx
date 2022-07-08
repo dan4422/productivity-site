@@ -5,17 +5,21 @@ import BarChart from '../components/BarChart'
 import LineChart from '../components/LineChart'
 import PieChart from '../components/PieChart'
 import CompletedBarChart from '../components/CompletedBarChart'
+import ColorLabelPieChart from '../components/ColorLabelPieChart'
 
 function Progress() {
   return (
     <Container fluid className='p-4'>
-      <h1 className='text-center border-bottom border-4 border-dark pb-3'>Check Out That Progress!</h1>
-      <Row className='justify-content-center mt-3'>
-        <Col xs={12} md={7} lg={6}>
+      <h1 className={`${styles.headerText} text-center pb-3`}>Check Out That Progress!</h1>
+      <Row className='justify-content-start mt-3'>
+        <Col xs={12} md={6} lg={6}>
           <BarChart/>
         </Col>
-        <Col xs={12} md={5} lg={3}>
+        <Col xs={12} md={3} lg={3}>
           <PieChart/>
+        </Col>
+        <Col xs={12} md={3} lg={3}>
+          <ColorLabelPieChart/>
         </Col>
       </Row>
       <Row className='justify-content-center mt-4'>

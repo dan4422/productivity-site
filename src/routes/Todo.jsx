@@ -16,7 +16,7 @@ function Todo() {
         {changeView ? <Button onClick={() => setChangeView(!changeView)}>See List View</Button> : <Button onClick={() => setChangeView(!changeView)}>See Calendar View</Button>}
       </div>
       <Col xs={12}>
-        {changeView ? <MainCalendar /> : <List className={styles.table}/>}
+        {changeView ? <MainCalendar /> : <List/>}
       </Col>
     </>
   )

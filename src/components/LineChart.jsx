@@ -31,7 +31,7 @@ function LineChart() {
   })
 
   return (
-    <Line data={data}  className={styles.bgColor}/>
+    <Line data={data}  className={styles.bgChart}/>
   )
 }
 

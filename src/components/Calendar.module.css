@@ -1,9 +1,13 @@
-.homeCalendar {
+.todoCalendar {
   height: 90vh;
-  width: 90vw;
+  width: 100%;
+  max-width: 90vw;
   font-size: large;
   margin-top: 25px;
   margin-bottom: 10px;
-  background-color: white;
+  background-color: #f9f9f9;
   border: 2px outset #3DA35D;
+  box-shadow: 2px 2px 5px;
+  padding: 15px;
+  border-radius: 30px;
 }

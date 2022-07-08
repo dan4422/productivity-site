@@ -68,22 +68,23 @@ function MainCalendar() {
     } 
   }
 
+  
+
   const views = Object.keys(Views).map((k)=> Views[k])
   const MyCalendar = props => (
-    <div>
       <Calendar
         localizer={localizer}
         startAccessor="start"
         endAccessor="end"
-        className={styles.homeCalendar}
+        className={styles.todoCalendar}
         events={tasks}
         eventPropGetter={eventPropGetter}
         onSelectEvent={(props) => handleShow(props)}
         views={views}
+        defaultView={Views.MONTH}
         step={15}
         showMultiDayTimes
       />
-    </div>
   )
 
   return (

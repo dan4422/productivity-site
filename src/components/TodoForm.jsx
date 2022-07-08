@@ -47,8 +47,8 @@ function TodoForm() {
           <InputGroup size="lg">
           <FloatingLabel label="Pick a color">
             <Form.Select value={color} onChange={(e) => setColor(e.target.value)}>
-              <option selected disabled>Choose Color</option>
-              <option value="#3993DD">Blue</option>
+              <option disabled>Choose Color</option>
+              <option value="">Blue</option>
               <option value="#90141E">Red</option>
               <option value="#EFAAC4">Pink</option>
               <option value="#772D8B">Purple</option>

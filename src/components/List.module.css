@@ -1,22 +1,31 @@
+
 .table {
-  width: 95vw;
+  max-width: 95vw;
+  width: 100%;
   background-color: #f9f9f9;
   border: 2px outset #3DA35D;
-
+  height: 100%;
+  max-height: 90vh;
+  box-shadow: 2px 2px 5px;
 }
 
-.titleRow {
-  width: 25%;
+.tableHead {
+  position: sticky;
+  top: 0;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 0 #3DA35D, inset 0 -2px 0 #3DA35D;
+  font-size: 13px;
 }
 
-.allDayRow {
-  width: 18%;
+.tableBody {
+  height: 80vh;
+  overflow: auto;
+  max-width: 95vw;
+  width: 100%;
 }
 
-.actionRow {
-  width: 13%
-}
-
-.completeRow {
-
+.titleData {
+  word-wrap: break-word;
+  min-width: 150px;
+  max-width: 200px;
 }
