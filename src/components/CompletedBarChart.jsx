@@ -18,7 +18,6 @@ function CompletedBarChart() {
       monthData[month] += 1
     }
   }
-  console.log(monthData)
   const [data, setData] = useState({
     datasets: [{
       label: "Completed Tasks by Month",
