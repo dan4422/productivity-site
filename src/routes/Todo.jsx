@@ -12,10 +12,10 @@ function Todo() {
   return (
     <>
       <TodoForm />
+      <Col xs={12}>
       <div className={styles.viewBtn}>
         {changeView ? <Button onClick={() => setChangeView(!changeView)}>See List View</Button> : <Button onClick={() => setChangeView(!changeView)}>See Calendar View</Button>}
       </div>
-      <Col xs={12}>
         {changeView ? <MainCalendar /> : <List/>}
       </Col>
     </>

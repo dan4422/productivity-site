@@ -80,7 +80,7 @@ function MainCalendar() {
         events={tasks}
         eventPropGetter={eventPropGetter}
         onSelectEvent={(props) => handleShow(props)}
-        views={views}
+        views={['month','week', 'day']}
         defaultView={Views.MONTH}
         step={15}
         showMultiDayTimes

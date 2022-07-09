@@ -23,7 +23,7 @@ function List() {
 
   return (
     <>
-      <Table striped bordered hover className={`${styles.table} mt-4 mx-auto`}>
+      <Table responsive striped bordered hover className={`${styles.table} mt-4 mx-auto`}>
         <thead className={styles.tableHead}>
           <tr>
             <th className={styles.completeRow}>√ <br /><Button className='btn-sm' variant="success" onClick={() => handleSortClick('complete')}>Sort</Button>{sort !== 'complete' ? '' : direction === 1 ? '\u25B2' : '\u25BC'}</th>

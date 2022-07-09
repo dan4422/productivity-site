@@ -12,13 +12,13 @@
 .viewBtn button:active,
 .viewBtn button:focus
 {
-  background-color: #3DA35D;
-  border-color: #3DA35D;
-  outline-color: #3DA35D;
+  background-color: #745C97;
+  border-color: #745C97;
+  outline-color: #745C97;
 }
 
 .viewBtn button:hover {
-  background-color: #745C97;
+  background-color: #3DA35D;
 }
 
 .table {

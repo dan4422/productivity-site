@@ -1,21 +1,30 @@
 .switchbox {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-content: center;
   align-items: center;
-  border: .5px solid rgb(206, 212, 218);
-  padding-left: 5px;
-  padding-right: 5px;
+  border: 1px solid rgb(206, 212, 218);
+  /* padding: 8px 3px 8px 3px; */
   background-color: white;
+  border-radius: 5px;
 } 
 
 .switchbox p {
-  font-size: small;
-  padding-bottom: 20px;
+  font-size: 11px;
+  padding-top: 2px;
+  padding-bottom: 7px;
+  margin: 0;
 }
 
 
 .switch {
   transform: scale(1.4);
-  margin-top: 10px;
-  padding: 5px 5px 0px 0px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 665px) {
 }
