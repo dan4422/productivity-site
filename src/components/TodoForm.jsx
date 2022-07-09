@@ -49,7 +49,7 @@ function TodoForm() {
               <Row>
                 <InputGroup size="lg" className='d-flex justify-content-center'>
                   <Col xs={12} md={2} lg={2}>
-                    <FloatingLabel label="Pick a color">
+                    <FloatingLabel label="color">
                       <Form.Select value={color} onChange={(e) => setColor(e.target.value)}>
                         <option disabled>Choose Color</option>
                         <option value="">Blue</option>
@@ -68,12 +68,12 @@ function TodoForm() {
                         placeholder='Add in a task' value={title} onChange={(e) => setTitle(e.target.value)} required />
                     </FloatingLabel>
                   </Col>
-                  <Col xs={12} md={3} lg={2}>
+                  <Col xs={6} md={3} lg={2}>
                     <FloatingLabel label="Pick a start date">
                       {allDay ? <Form.Control type="date" placeholder='Pick a start date' value={start} onChange={(e) => setDateStart(e.target.value)} required /> : <Form.Control type="datetime-local" placeholder='Pick a start date' value={start} onChange={(e) => setDateStart(e.target.value)} required />}
                     </FloatingLabel>
                   </Col>
-                  <Col xs={12} md={3} lg={2}>
+                  <Col xs={6} md={3} lg={2}>
                     <FloatingLabel label="Pick a end date">
                       {allDay ? <Form.Control type="date" placeholder='Pick a end date' value={end} onChange={(e) => setDateEnd(e.target.value)} required /> : <Form.Control type="datetime-local" placeholder='Pick a end date' value={end} onChange={(e) => setDateEnd(e.target.value)} required />}
                     </FloatingLabel>
