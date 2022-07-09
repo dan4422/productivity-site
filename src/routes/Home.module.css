@@ -14,7 +14,6 @@
   #96e072 100%);
   animation: colorful 1s linear infinite;
   font-size: 100px;
-  text-shadow: rgba(150,224,114,.8) -8px -3px 2px;
 }
 
 
@@ -43,5 +42,16 @@
     #3da35d 30%,
     #3e8914 70%,
     #96e072 100%);
+  }
+}
+
+@media (max-width: 692px) {
+  .homeHeader {
+    font-size: 65px;
+  }
+}
+@media (max-width: 450px) {
+  .homeHeader {
+    font-size: 50px;
   }
 }
