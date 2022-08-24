@@ -16,7 +16,7 @@ function ColorLabelPieChart(props) {
       'Purple',
       'Orange',
       'Yellow',
-      'Brown'],
+      'Green'],
     datasets: [{
       label: "Tasks Completed",
       data: [
